@@ -1,0 +1,592 @@
+# This file is a sample theme that contains every possible data to be displayed on screen
+# It can be used to start the development of a new theme: it should be copied to a sub-folder with its PNG resources
+# See the wiki to edit this file: https://github.com/mathoudebine/turing-smart-screen-python/wiki/System-monitor-:-themes
+
+# NOTE: Every HW sensor is hidden in this example, to show a sensor change 'SHOW: False' to 'SHOW: True'
+---
+# If you indicate @ with your GitHub username, there will be a hyperlink to your GitHub profile in the Config. Wizard
+# Otherwise, you can just indicate any text e.g. author: "Your Name"
+# You can also remove the line if you don't want to be credited
+author: "@FelipeHerc"
+
+display:
+  # Specify the display size in inch for this theme: 3.5" (default) or 5"
+  DISPLAY_SIZE: 3.5"
+
+  # Specify the display orientation for this theme: portrait or landscape (reverse orientation is managed in config.yaml)
+  DISPLAY_ORIENTATION: landscape
+
+  # Backplate RGB LED color (for HW revision 'flagship' devices only), set one that match your theme dominant color
+  DISPLAY_RGB_LED: 255, 0, 0
+
+static_images:
+  # Specify what static images we want to show on the display
+  # You can create additional records here, the name of the entry must be unique and contain at a minimum the PATH.
+  # Images are drawn in the order they are listed below, the top image will be drawn first (so places images back to front)
+  # IMAGE_NAME:
+  #   PATH:
+  #   X:
+  #   Y:
+  #   WIDTH:
+  #   HEIGHT:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 480
+    HEIGHT: 320
+
+static_text:
+  CPU:
+   TEXT: CPU =>
+   X: 109
+   Y: 130
+   FONT: fira-code/FiraCode-SemiBold.ttf
+   FONT_SIZE: 24
+   FONT_COLOR: 127, 118, 253
+   BACKGROUND_IMAGE: background.png
+
+  GPU:
+   TEXT: GPU =>
+   X: 290
+   Y: 130
+   FONT: fira-code/FiraCode-SemiBold.ttf
+   FONT_SIZE: 24
+   FONT_COLOR: 127, 118, 253
+   
+   BACKGROUND_IMAGE: background.png
+
+STATS:
+  CPU:
+    PERCENTAGE:
+      # In seconds. Longer intervals cause this to refresh more slowly.
+      # Setting to lower values will display near real time data,
+      # but may cause significant CPU usage or the display not to update properly
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 290
+        Y: 7
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 80, 250, 123
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: True
+        X: 110
+        Y: 5
+        WIDTH: 175
+        HEIGHT: 19
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 195, 95, 253
+        BAR_OUTLINE: True
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      # RADIAL:
+      #   SHOW: False
+      #   X: 100
+      #   Y: 110
+      #   RADIUS: 40
+      #   WIDTH: 10
+      #   MIN_VALUE: 0
+      #   MAX_VALUE: 100
+      #   ANGLE_START: 120
+      #   ANGLE_END: 60
+      #   ANGLE_STEPS: 20
+      #   ANGLE_SEP: 5
+      #   CLOCKWISE: True
+      #   BAR_COLOR: 0, 255, 0
+      #   SHOW_TEXT: True
+      #   SHOW_UNIT: True
+      #   FONT: roboto/Roboto-Bold.ttf
+      #   FONT_SIZE: 13
+      #   FONT_COLOR: 189, 147, 249
+      #   # BACKGROUND_COLOR: 0, 0, 0
+      #   BACKGROUND_IMAGE: background.png
+    FREQUENCY:
+      # In seconds. Longer intervals cause this to refresh more slowly.
+      # Setting to lower values will display near real time data,
+      # but may cause significant CPU usage or the display not to update properly
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 360
+        Y: 7
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 80, 250, 123
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+    LOAD:
+      # In seconds. Longer intervals cause this to refresh more slowly.
+      # Setting to lower values will display near real time data,
+      # but may cause significant CPU usage or the display not to update properly
+      INTERVAL: 5
+      ONE:
+        TEXT:
+          SHOW: False
+          SHOW_UNIT: True
+          X: 110
+          Y: 106
+          FONT: roboto/Roboto-Bold.ttf
+          FONT_SIZE: 13
+          FONT_COLOR: 200, 200, 200
+          # BACKGROUND_COLOR: 50, 50, 50
+          BACKGROUND_IMAGE: background.png
+      FIVE:
+        TEXT:
+          SHOW: False
+          SHOW_UNIT: True
+          X: 183
+          Y: 106
+          FONT: roboto/Roboto-Bold.ttf
+          FONT_SIZE: 13
+          FONT_COLOR: 200, 200, 200
+          # BACKGROUND_COLOR: 50, 50, 50
+          BACKGROUND_IMAGE: background.png
+      FIFTEEN:
+        TEXT:
+          SHOW: False
+          SHOW_UNIT: True
+          X: 265
+          Y: 106
+          FONT: roboto/Roboto-Bold.ttf
+          FONT_SIZE: 13
+          FONT_COLOR: 200, 200, 200
+          # BACKGROUND_COLOR: 50, 50, 50
+          BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: true
+        SHOW_UNIT: true
+        X: 195
+        Y: 130
+        FONT: fira-code/FiraCode-Bold.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 255, 85, 85
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+  GPU:
+    # In seconds. Longer intervals cause this to refresh more slowly.
+    # Setting to lower values will display near real time data,
+    # but may cause significant CPU usage or the display not to update properly
+    INTERVAL: 5
+    PERCENTAGE:
+      GRAPH:
+        SHOW: True
+        X: 110
+        Y: 67
+        WIDTH: 175
+        HEIGHT: 19
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 195, 95, 253
+        BAR_OUTLINE: True
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      RADIAL:
+        SHOW: False
+        X: 141
+        Y: 275
+        RADIUS: 28
+        WIDTH: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 110
+        ANGLE_END: 70
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 25
+        CLOCKWISE: True
+        BAR_COLOR: 255, 0, 0
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: roboto/Roboto-Bold.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 200, 200, 200
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 290
+        Y: 68
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 80, 250, 123
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+    # MEMORY:
+    #   GRAPH:
+    #     SHOW: True
+    #     X: 115
+    #     Y: 215
+    #     WIDTH: 178
+    #     HEIGHT: 13
+    #     MIN_VALUE: 0
+    #     MAX_VALUE: 100
+    #     BAR_COLOR: 255, 0, 0
+    #     BAR_OUTLINE: False
+    #     # BACKGROUND_COLOR: 0, 0, 0
+    #     BACKGROUND_IMAGE: background.png
+    #   RADIAL:
+    #     SHOW: False
+    #     X: 141
+    #     Y: 275
+    #     RADIUS: 28
+    #     WIDTH: 8
+    #     MIN_VALUE: 0
+    #     MAX_VALUE: 100
+    #     ANGLE_START: 110
+    #     ANGLE_END: 70
+    #     ANGLE_STEPS: 1
+    #     ANGLE_SEP: 25
+    #     CLOCKWISE: True
+    #     BAR_COLOR: 255, 0, 0
+    #     SHOW_TEXT: True
+    #     SHOW_UNIT: True
+    #     FONT: roboto/Roboto-Bold.ttf
+    #     FONT_SIZE: 13
+    #     FONT_COLOR: 200, 200, 200
+    #     # BACKGROUND_COLOR: 0, 0, 0
+    #     BACKGROUND_IMAGE: background.png
+    #   TEXT:
+    #     SHOW: False
+    #     SHOW_UNIT: True
+    #     X: 204
+    #     Y: 195
+    #     FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+    #     FONT_SIZE: 23
+    #     FONT_COLOR: 255, 255, 255
+    #     # BACKGROUND_COLOR: 132, 154, 165
+    #     BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      TEXT:
+        SHOW: true
+        SHOW_UNIT: True
+        X: 376
+        Y: 130
+        FONT: fira-code/FiraCode-Bold.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 255, 85, 85
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+
+    FPS:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 360
+        Y: 68
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 80, 250, 123
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+  MEMORY:
+    # In seconds. Longer intervals cause this to refresh more slowly.
+    # Setting to lower values will display near real time data,
+    # but may cause significant CPU usage or the display not to update properly
+    INTERVAL: 5
+    SWAP:
+      GRAPH:
+        SHOW: False
+        X: 110
+        Y: 35
+        WIDTH: 175
+        HEIGHT: 19
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 195, 95, 253
+        BAR_OUTLINE: True
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      RADIAL:
+        SHOW: False
+        X: 141
+        Y: 275
+        RADIUS: 28
+        WIDTH: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 110
+        ANGLE_END: 70
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 25
+        CLOCKWISE: True
+        BAR_COLOR: 255, 0, 0
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: roboto/Roboto-Bold.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 200, 200, 200
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+    VIRTUAL:
+      GRAPH:
+        SHOW: true
+        X: 110
+        Y: 36
+        WIDTH: 175
+        HEIGHT: 19
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 195, 95, 253
+        BAR_OUTLINE: True
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      RADIAL:
+        SHOW: False
+        X: 141
+        Y: 275
+        RADIUS: 28
+        WIDTH: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 110
+        ANGLE_END: 70
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 25
+        CLOCKWISE: True
+        BAR_COLOR: 255, 0, 0
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: roboto/Roboto-Bold.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 200, 200, 200
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      USED:
+        SHOW: false
+        SHOW_UNIT: True
+        X: 290
+        Y: 37
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        # BACKGROUND_COLOR: 0, 0, 0
+        FONT_COLOR: 80, 250, 123
+        BACKGROUND_IMAGE: background.png
+      FREE:
+        SHOW: FALSE
+        SHOW_UNIT: True
+        X: 182
+        Y: 129
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 23
+        FONT_COLOR: 255, 255, 255
+        # BACKGROUND_COLOR: 132, 154, 165
+        BACKGROUND_IMAGE: background.png
+      TOTAL:
+        SHOW: true
+        SHOW_UNIT: True
+        X: 360
+        Y: 38
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        # BACKGROUND_COLOR: 0, 0, 0
+        FONT_COLOR: 80, 250, 123
+        BACKGROUND_IMAGE: background.png
+      PERCENT_TEXT:
+        SHOW: true
+        SHOW_UNIT: True
+        X: 290
+        Y: 38
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        # BACKGROUND_COLOR: 0, 0, 0
+        FONT_COLOR: 80, 250, 123
+        BACKGROUND_IMAGE: background.png
+  DISK:
+    INTERVAL: 10
+    USED:
+      GRAPH:
+        SHOW: True
+        X: 110
+        Y: 98
+        WIDTH: 175
+        HEIGHT: 19
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 195, 95, 253
+        BAR_OUTLINE: True
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      RADIAL:
+        SHOW: False
+        X: 141
+        Y: 275
+        RADIUS: 28
+        WIDTH: 8
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 110
+        ANGLE_END: 70
+        ANGLE_STEPS: 1
+        ANGLE_SEP: 25
+        CLOCKWISE: True
+        BAR_COLOR: 255, 0, 0
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: roboto/Roboto-Bold.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 200, 200, 200
+        # BACKGROUND_COLOR: 0, 0, 0
+        BACKGROUND_IMAGE: background.png
+      TEXT:
+        SHOW: false
+        SHOW_UNIT: True
+        X: 277
+        Y: 98
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 80, 250, 123
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 290
+        Y: 99
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 80, 250, 123
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+
+    TOTAL:
+      TEXT:
+        SHOW: False
+        SHOW_UNIT: True
+        X: 204
+        Y: 375
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 23
+        FONT_COLOR: 255, 255, 255
+        # BACKGROUND_COLOR: 132, 154, 165
+        BACKGROUND_IMAGE: background.png
+    FREE:
+      TEXT:
+        SHOW: false
+        SHOW_UNIT: True
+        X: 350
+        Y: 99
+        FONT: fira-code/FiraCode-Light.ttf
+        FONT_SIZE: 21
+        FONT_COLOR: 80, 250, 123
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+  NET:
+    INTERVAL: 1
+    # WLO:
+    #   UPLOAD:
+    #     TEXT:
+    #       SHOW: true
+    #       X: 109
+    #       Y: 157
+    #       FONT: fira-code/FiraCode-Retina.ttf
+    #       FONT_SIZE: 24
+    #       FONT_COLOR: 127, 118, 253
+    #       BACKGROUND_IMAGE: background.png
+
+    #   UPLOADED:
+    #     TEXT:
+    #       SHOW: true
+    #       X: 289
+    #       Y: 160
+    #       FONT: fira-code/FiraCode-Retina.ttf
+    #       FONT_SIZE: 24
+    #       FONT_COLOR: 127, 118, 253
+    #       BACKGROUND_IMAGE: background.png
+
+    #   DOWNLOAD:
+    #     TEXT:
+    #       SHOW: true
+    #       X: 109
+    #       Y: 189
+    #       FONT: fira-code/FiraCode-Retina.ttf
+    #       FONT_SIZE: 24
+    #       FONT_COLOR: 127, 118, 253
+    #       BACKGROUND_IMAGE: background.png
+
+    #   DOWNLOADED:
+    #     TEXT:
+    #       SHOW: true
+    #       X: 289
+    #       Y: 192
+    #       FONT: fira-code/FiraCode-Retina.ttf
+    #       FONT_SIZE: 24
+    #       FONT_COLOR: 127, 118, 253
+    #       BACKGROUND_IMAGE: background.png
+    ETH:
+      UPLOAD:
+        TEXT:
+          SHOW: true
+          X: 109 
+          Y: 157
+          FONT: fira-code/FiraCode-Retina.ttf
+          FONT_SIZE: 24
+          FONT_COLOR: 127, 118, 253
+          BACKGROUND_IMAGE: background.png
+
+      UPLOADED:
+        TEXT:
+          SHOW: true
+          X: 289
+          Y: 160
+          FONT: fira-code/FiraCode-Retina.ttf
+          FONT_SIZE: 24
+          FONT_COLOR: 127, 118, 253
+          BACKGROUND_IMAGE: background.png
+
+      DOWNLOAD:
+        TEXT:
+          SHOW: true
+          X: 109
+          Y: 189
+          FONT: fira-code/FiraCode-Retina.ttf
+          FONT_SIZE: 24
+          FONT_COLOR: 127, 118, 253
+          BACKGROUND_IMAGE: background.png
+
+      DOWNLOADED:
+        TEXT:
+          SHOW: true
+          X: 289
+          Y: 192
+          FONT: fira-code/FiraCode-Retina.ttf
+          FONT_SIZE: 24
+          FONT_COLOR: 127, 118, 253
+          BACKGROUND_IMAGE: background.png
+
+  STATIC_TEXT:
+    LINE:
+
+  DATE:
+    # For time display, it is recommended not to change the interval: keep to 1
+    INTERVAL: 1
+    DAY: # Format (Y/M/D ordering, month/day translations...) will match your computer locale
+      TEXT:
+        FORMAT: full # short (2/20/23) / medium (Feb 20, 2023) / long (February 20, 2023) / full (Monday, February 20, 2023)
+        SHOW: true
+        X: 8
+        Y: 233
+        FONT: fira-code/FiraCode-Retina.ttf
+        FONT_SIZE: 18
+        FONT_COLOR: 189, 147, 249
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
+    HOUR: # Format (12/24h, timezone translations) will match your computer locale
+      TEXT:
+        FORMAT: medium # short (6:48 PM) / medium (6:48:53 PM) / long (6:48:53 PM UTC) / full (6:48:53 PM Coordinated Universal Time)
+        SHOW: true
+        X: 8
+        Y: 270
+        FONT: fira-code/FiraCode-Bold.ttf
+        FONT_SIZE: 35
+        FONT_COLOR: 189, 147, 249
+        # BACKGROUND_COLOR: 50, 50, 50
+        BACKGROUND_IMAGE: background.png
